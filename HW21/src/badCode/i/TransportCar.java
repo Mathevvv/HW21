@@ -1,6 +1,6 @@
 package badCode.i;
 
-interface Transport {
+interface TransportCar {
     void start();
 
     void stop();

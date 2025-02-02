@@ -1,19 +1,16 @@
 package badCode.d;
 
 class NotificationService {
-    private EmailNotifier emailNotifier;
-    private SMSNotifier smsNotifier;
+    private Sendable sendable;
 
-    NotificationService() {
-        emailNotifier = new EmailNotifier();
-        smsNotifier = new SMSNotifier();
+    NotificationService(Sendable sendable) {
+        this.sendable = sendable;
     }
 
-    void sendNotification(String recipient, String message, String deliveryMethod) {
-        if (deliveryMethod.equals("email")) {
-            emailNotifier.sendEmail(recipient, message);
-        } else if (deliveryMethod.equals("sms")) {
-            smsNotifier.sendSMS(recipient, message);
-        }
+
+    void sendNotification(String recipient, String message) {
+
+            sendable.send(recipient, message);
+
     }
 }
